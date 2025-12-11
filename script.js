@@ -384,13 +384,24 @@ setInterval(() => {
 // ========================================
 // Resume Download Handler
 // ========================================
-const downloadResumeBtn = document.getElementById('downloadResume');
+function downloadResume(e) {
+    e.preventDefault();
+    const link = document.createElement('a');
+    link.href = 'resume.pdf';
+    link.download = 'Yelliboina_Sunil_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    // Fallback: open in new tab if download doesn't work
+    setTimeout(() => {
+        window.open('resume.pdf', '_blank');
+    }, 100);
+}
 
+const downloadResumeBtn = document.getElementById('downloadResume');
 if (downloadResumeBtn) {
-    downloadResumeBtn.addEventListener('click', function(e) {
-        // Resume opens in new tab - users can print to PDF using browser's print function
-        // Or save as PDF directly from browser
-    });
+    downloadResumeBtn.addEventListener('click', downloadResume);
 }
 
 console.log('Portfolio loaded successfully! 🚀');

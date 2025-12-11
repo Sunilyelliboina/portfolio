@@ -386,23 +386,38 @@ setInterval(() => {
 // ========================================
 function downloadResume(e) {
     e.preventDefault();
+    
+    // Try direct download first
     const link = document.createElement('a');
     link.href = 'resume.pdf';
     link.download = 'Yelliboina_Sunil_Resume.pdf';
+    link.style.display = 'none';
     document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
     
-    // Fallback: open in new tab if download doesn't work
-    setTimeout(() => {
+    // Trigger download
+    try {
+        link.click();
+    } catch (err) {
+        console.error('Download failed:', err);
+        // Fallback: open in new tab
         window.open('resume.pdf', '_blank');
+    }
+    
+    // Clean up
+    setTimeout(() => {
+        document.body.removeChild(link);
     }, 100);
 }
 
-const downloadResumeBtn = document.getElementById('downloadResume');
-if (downloadResumeBtn) {
-    downloadResumeBtn.addEventListener('click', downloadResume);
-}
+// Add event listener when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+    const downloadResumeBtn = document.getElementById('downloadResume');
+    if (downloadResumeBtn) {
+        // Remove onclick attribute handler to avoid double execution
+        downloadResumeBtn.removeAttribute('onclick');
+        downloadResumeBtn.addEventListener('click', downloadResume);
+    }
+});
 
 console.log('Portfolio loaded successfully! 🚀');
 

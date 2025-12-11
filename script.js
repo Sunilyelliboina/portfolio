@@ -381,6 +381,17 @@ setInterval(() => {
     }
 }, 2000);
 
+// ========================================
+// Resume Download Handler
+// ========================================
+const downloadResumeBtn = document.getElementById('downloadResume');
+
+if (downloadResumeBtn) {
+    downloadResumeBtn.addEventListener('click', function(e) {
+        // Resume opens in new tab - users can print to PDF using browser's print function
+        // Or save as PDF directly from browser
+    });
+}
 
 console.log('Portfolio loaded successfully! 🚀');
 

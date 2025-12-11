@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yelliboina Sunil - Resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #ffffff;
+            color: #0f172a;
+            line-height: 1.6;
+            padding: 2rem;
+        }
+        .resume-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #22d3ee;
+            padding-bottom: 2rem;
+            margin-bottom: 2rem;
+        }
+        .header h1 {
+            font-size: 2.5rem;
+            color: #0f172a;
+            margin-bottom: 0.5rem;
+        }
+        .header .title {
+            font-size: 1.25rem;
+            color: #475569;
+            margin-bottom: 1rem;
+        }
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+            color: #64748b;
+        }
+        .contact-info a {
+            color: #22d3ee;
+            text-decoration: none;
+        }
+        .section {
+            margin-bottom: 2rem;
+        }
+        .section-title {
+            font-size: 1.5rem;
+            color: #0f172a;
+            border-bottom: 2px solid #22d3ee;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .experience-item, .project-item {
+            margin-bottom: 1.5rem;
+        }
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 0.5rem;
+        }
+        .job-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #0f172a;
+        }
+        .company {
+            color: #22d3ee;
+            font-weight: 600;
+        }
+        .date {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+        .location {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+        }
+        .description {
+            color: #475569;
+            margin-bottom: 0.75rem;
+        }
+        .achievements {
+            list-style: none;
+            padding-left: 0;
+        }
+        .achievements li {
+            color: #475569;
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+        .achievements li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: #22d3ee;
+            font-weight: bold;
+        }
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        .tech-tags span {
+            background: #f1f5f9;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            color: #0f172a;
+            border: 1px solid #e2e8f0;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+        .skill-category h4 {
+            color: #0f172a;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        .skill-list {
+            color: #475569;
+            font-size: 0.95rem;
+        }
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #22d3ee 0%, #a855f7 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(34, 211, 238, 0.3);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            z-index: 1000;
+        }
+        .print-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(34, 211, 238, 0.4);
+        }
+        .print-button i {
+            font-size: 1.1rem;
+        }
+        @media print {
+            .print-button {
+                display: none;
+            }
+            body {
+                padding: 0;
+            }
+            .resume-container {
+                box-shadow: none;
+                padding: 2rem;
+            }
+            .section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <div class="header">
+            <h1>Yelliboina Sunil</h1>
+            <p class="title">Junior DevOps Engineer • AWS Cloud Specialist</p>
+            <div class="contact-info">
+                <a href="mailto:yelliboyinasunil@gmail.com">yelliboyinasunil@gmail.com</a>
+                <a href="tel:+917075004795">+91 7075004795</a>
+                <a href="https://www.linkedin.com/in/yelliboina-sunil-b95652287" target="_blank">LinkedIn</a>
+                <span>India</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Professional Summary</h2>
+            <p class="description">
+                Passionate DevOps Engineer with hands-on experience in Docker containerization, Jenkins CI/CD pipelines, 
+                and AWS cloud infrastructure. Started DevOps journey at Beetexting in April 2025, progressing from Linux 
+                fundamentals to mastering containerization and automation. Successfully containerized multiple AI team 
+                services and built comprehensive CI/CD pipelines for production deployments. Currently preparing for 
+                AWS Certified Solutions Architect certification.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Professional Experience</h2>
+            
+            <div class="experience-item">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Junior DevOps Engineer</div>
+                        <div class="company">Beetexting Software Pvt Ltd</div>
+                    </div>
+                    <div class="date">October 2025 – Present</div>
+                </div>
+                <div class="location">Remote</div>
+                <p class="description">
+                    Promoted to Junior DevOps Engineer after demonstrating expertise in Docker containerization and CI/CD 
+                    pipeline automation. Currently preparing for AWS Certified Solutions Architect certification.
+                </p>
+                <ul class="achievements">
+                    <li>Promoted from Fresher to Junior DevOps Engineer based on performance</li>
+                    <li>Successfully containerized multiple AI team services</li>
+                    <li>Built comprehensive Jenkins CI/CD pipelines for production deployments</li>
+                    <li>Preparing for AWS Certified Solutions Architect certification</li>
+                </ul>
+                <div class="tech-tags">
+                    <span>Docker</span>
+                    <span>Jenkins</span>
+                    <span>Linux</span>
+                    <span>Bash</span>
+                    <span>YAML</span>
+                    <span>AWS</span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">DevOps Engineer (Fresher)</div>
+                        <div class="company">Beetexting Software Pvt Ltd</div>
+                    </div>
+                    <div class="date">October 2025</div>
+                </div>
+                <div class="location">Remote</div>
+                <p class="description">
+                    Developed Jenkins CI/CD jobs for AI team services including AI-Compliance-Services, TCR-Agent, 
+                    Scrapings, and Crexendo, automating deployment workflows.
+                </p>
+                <ul class="achievements">
+                    <li>Created Jenkins jobs for AI-Compliance-Services automation</li>
+                    <li>Configured CI/CD pipelines for TCR-Agent service</li>
+                    <li>Set up Jenkins workflows for multiple scraping services</li>
+                    <li>Implemented automated deployment for Crexendo application</li>
+                </ul>
+                <div class="tech-tags">
+                    <span>Jenkins</span>
+                    <span>CI/CD</span>
+                    <span>Docker</span>
+                    <span>Git</span>
+                    <span>Bash Scripting</span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">DevOps Engineer (Fresher)</div>
+                        <div class="company">Beetexting Software Pvt Ltd</div>
+                    </div>
+                    <div class="date">August 2025</div>
+                </div>
+                <div class="location">Remote</div>
+                <p class="description">
+                    Assigned to AI team tasks, focusing on containerization by writing Dockerfiles for TCR-Agent, 
+                    AI-Compliance-Services, and various scraping services (privacy-scraping, website, forms, terms).
+                </p>
+                <ul class="achievements">
+                    <li>Created Dockerfiles for TCR-Agent service</li>
+                    <li>Developed containerization for AI-Compliance-Services</li>
+                    <li>Built Dockerfiles for privacy-scraping service</li>
+                    <li>Containerized website, forms, and terms scraping services</li>
+                </ul>
+                <div class="tech-tags">
+                    <span>Docker</span>
+                    <span>Dockerfile</span>
+                    <span>Linux</span>
+                    <span>Containerization</span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">DevOps Engineer (Fresher)</div>
+                        <div class="company">Beetexting Software Pvt Ltd</div>
+                    </div>
+                    <div class="date">April 2025 – July 2025</div>
+                </div>
+                <div class="location">Remote</div>
+                <p class="description">
+                    Started DevOps journey at Beetexting, beginning with Linux fundamentals and progressing step by step 
+                    to master Docker containerization through hands-on learning.
+                </p>
+                <ul class="achievements">
+                    <li>Mastered Linux command line and system administration</li>
+                    <li>Learned Docker fundamentals and containerization concepts</li>
+                    <li>Progressed through step-by-step DevOps learning path</li>
+                    <li>Built foundation for cloud infrastructure management</li>
+                </ul>
+                <div class="tech-tags">
+                    <span>Linux</span>
+                    <span>Docker</span>
+                    <span>Bash</span>
+                    <span>Shell Scripting</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>AWS Services</h4>
+                    <div class="skill-list">EC2, S3, Lambda, IAM, CloudFormation, VPC, CloudWatch</div>
+                </div>
+                <div class="skill-category">
+                    <h4>DevOps Tools</h4>
+                    <div class="skill-list">Docker, Kubernetes, Jenkins, Terraform, Ansible, Git/GitHub</div>
+                </div>
+                <div class="skill-category">
+                    <h4>Scripting & OS</h4>
+                    <div class="skill-list">Linux, Bash Scripting, Python, YAML</div>
+                </div>
+                <div class="skill-category">
+                    <h4>Monitoring</h4>
+                    <div class="skill-list">CloudWatch, Prometheus, Grafana, Nginx</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Certifications</h2>
+            <div class="experience-item">
+                <div class="job-title">AWS Certified Solutions Architect</div>
+                <div class="company">Amazon Web Services</div>
+                <div class="date">In Progress</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Projects</h2>
+            
+            <div class="project-item">
+                <div class="job-title">AI Team Dockerfiles</div>
+                <p class="description">
+                    Created and maintained Dockerfiles for AI team services including TCR-Agent, AI-Compliance-Services, 
+                    and multiple scraping services (privacy-scraping, website, forms, terms).
+                </p>
+                <div class="tech-tags">
+                    <span>Docker</span>
+                    <span>Containerization</span>
+                    <span>AI Services</span>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="job-title">Jenkins CI/CD Pipelines</div>
+                <p class="description">
+                    Developed and configured Jenkins jobs for AI team services including AI-Compliance-Services, TCR-Agent, 
+                    Scrapings, and Crexendo for automated CI/CD workflows.
+                </p>
+                <div class="tech-tags">
+                    <span>Jenkins</span>
+                    <span>CI/CD</span>
+                    <span>Automation</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <button class="print-button" onclick="window.print()">
+        <i class="fas fa-print"></i> Print / Save as PDF
+    </button>
+    <script>
+        // Show print dialog when page loads (optional)
+        // Uncomment the line below if you want auto-print dialog
+        // window.onload = function() { setTimeout(() => window.print(), 500); }
+    </script>
+</body>
+</html>
+

@@ -384,37 +384,59 @@ setInterval(() => {
 // ========================================
 // Resume Download Handler
 // ========================================
-function downloadResume(e) {
+async function downloadResume(e) {
     e.preventDefault();
     
-    // Try direct download first
-    const link = document.createElement('a');
-    link.href = 'resume.pdf';
-    link.download = 'Yelliboina_Sunil_Resume.pdf';
-    link.style.display = 'none';
-    document.body.appendChild(link);
+    const downloadResumeBtn = e.currentTarget;
+    const originalText = downloadResumeBtn.innerHTML;
     
-    // Trigger download
+    // Show loading state
+    downloadResumeBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Downloading...';
+    downloadResumeBtn.style.pointerEvents = 'none';
+    
     try {
+        // Fetch the PDF file
+        const response = await fetch('resume.pdf');
+        
+        if (!response.ok) {
+            throw new Error('Failed to fetch resume');
+        }
+        
+        // Convert to blob
+        const blob = await response.blob();
+        
+        // Create download link
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'Yelliboina_Sunil_Resume.pdf';
+        link.style.display = 'none';
+        document.body.appendChild(link);
+        
+        // Trigger download
         link.click();
-    } catch (err) {
-        console.error('Download failed:', err);
+        
+        // Clean up
+        setTimeout(() => {
+            document.body.removeChild(link);
+            window.URL.revokeObjectURL(url);
+        }, 100);
+        
+    } catch (error) {
+        console.error('Download error:', error);
         // Fallback: open in new tab
         window.open('resume.pdf', '_blank');
+    } finally {
+        // Restore button state
+        downloadResumeBtn.innerHTML = originalText;
+        downloadResumeBtn.style.pointerEvents = 'auto';
     }
-    
-    // Clean up
-    setTimeout(() => {
-        document.body.removeChild(link);
-    }, 100);
 }
 
 // Add event listener when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
     const downloadResumeBtn = document.getElementById('downloadResume');
     if (downloadResumeBtn) {
-        // Remove onclick attribute handler to avoid double execution
-        downloadResumeBtn.removeAttribute('onclick');
         downloadResumeBtn.addEventListener('click', downloadResume);
     }
 });

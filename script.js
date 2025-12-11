@@ -382,62 +382,28 @@ setInterval(() => {
 }, 2000);
 
 // ========================================
-// Resume Download Handler
+// Resume Download Handler - Simple approach
 // ========================================
-async function downloadResume(e) {
-    e.preventDefault();
-    
-    const downloadResumeBtn = e.currentTarget;
-    const originalText = downloadResumeBtn.innerHTML;
-    
-    // Show loading state
-    downloadResumeBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Downloading...';
-    downloadResumeBtn.style.pointerEvents = 'none';
-    
-    try {
-        // Fetch the PDF file
-        const response = await fetch('resume.pdf');
-        
-        if (!response.ok) {
-            throw new Error('Failed to fetch resume');
-        }
-        
-        // Convert to blob
-        const blob = await response.blob();
-        
-        // Create download link
-        const url = window.URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = 'Yelliboina_Sunil_Resume.pdf';
-        link.style.display = 'none';
-        document.body.appendChild(link);
-        
-        // Trigger download
-        link.click();
-        
-        // Clean up
-        setTimeout(() => {
-            document.body.removeChild(link);
-            window.URL.revokeObjectURL(url);
-        }, 100);
-        
-    } catch (error) {
-        console.error('Download error:', error);
-        // Fallback: open in new tab
-        window.open('resume.pdf', '_blank');
-    } finally {
-        // Restore button state
-        downloadResumeBtn.innerHTML = originalText;
-        downloadResumeBtn.style.pointerEvents = 'auto';
-    }
-}
-
-// Add event listener when DOM is ready
+// Let the browser handle the download natively using the download attribute
+// Only add visual feedback
 document.addEventListener('DOMContentLoaded', function() {
     const downloadResumeBtn = document.getElementById('downloadResume');
     if (downloadResumeBtn) {
-        downloadResumeBtn.addEventListener('click', downloadResume);
+        downloadResumeBtn.addEventListener('click', function(e) {
+            // Add visual feedback
+            const originalText = this.innerHTML;
+            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Downloading...';
+            this.style.pointerEvents = 'none';
+            
+            // Reset after a delay
+            setTimeout(() => {
+                this.innerHTML = originalText;
+                this.style.pointerEvents = 'auto';
+            }, 2000);
+            
+            // Let the browser handle the download naturally
+            // The download attribute will handle it
+        });
     }
 });
 
